@@ -9,6 +9,7 @@ import 'package:c1api/views/api_Jtp.dart';
 import 'package:c1api/views/example_five.dart';
 import 'package:c1api/views/signup.dart';
 import 'package:c1api/views/signup1.dart';
+import 'package:c1api/views/signup2.dart';
 import 'package:c1api/views/slider_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:SignUpScreen(),
+        home:SignupTwo(),
       ),
     );
     // return MaterialApp(

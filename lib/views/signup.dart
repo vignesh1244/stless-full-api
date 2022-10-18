@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 
 import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -24,12 +25,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void login(dynamic mobile) async {
     try {
-      Response response =
-          await post(Uri.parse('http://manage.rinzyee.com/api-login'),
-              body: {
+      // Response response =
+      //     await post(Uri.parse('http://manage.rinzyee.com/api-login'),
+      //         body: {
+      //   'mobile': mobile,
+      // });
+
+
+      final response = await http.post(Uri.parse('http://manage.rinzyee.com/api-login'), body: {
         'mobile': mobile,
       });
-      print(response.statusCode);
+      final responseJson = json.decode(utf8.decode(response.bodyBytes));
+
+       print(response.statusCode);
       print('Response body: ${response.statusCode}');
 
       if (response.statusCode == 200) {
@@ -37,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         print(data);
         print('Login successfully');
       } else {
-        print('failed');
+        print('failedd');
       }
     } catch (e) {
       print(e.toString());
@@ -74,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 50,
                 decoration: BoxDecoration(
                     color: Colors.green,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),),
                 child: Center(
                   child: Text('Login'),
                 ),
@@ -86,3 +94,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+
