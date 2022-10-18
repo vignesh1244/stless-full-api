@@ -1,4 +1,6 @@
 import 'dart:convert';
+// "email": "eve.holt@reqres.in",
+// "password": "pistol"
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -26,11 +28,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
             'password' : password
           }
       );
+      print('Response body: ${response.body}');
 
       if(response.statusCode == 200){
 
         var data = jsonDecode(response.body.toString());
-        print(data['token']);
+
         print('Login successfully');
 
       }else {

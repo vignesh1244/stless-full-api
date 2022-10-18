@@ -29,6 +29,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               body: {
         'mobile': mobile,
       });
+      print(response.statusCode);
+      print('Response body: ${response.statusCode}');
 
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body.toString());
