@@ -34,7 +34,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
         var data = jsonDecode(response.body.toString());
 
-        print('Login successfully');
+        print('Login successfullysss');
 
       }else {
         print('failed');
