@@ -1,3 +1,4 @@
+import 'package:c1api/views/signup.dart';
 import 'package:c1api/views/signup2.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class _SecondState extends State<Second> {
             OutlinedButton.icon(
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => SignupTwo(),));
+                    context, MaterialPageRoute(builder: (context) => SignUpScreen(),));
               },
               icon: Icon(Icons.exit_to_app),
               label: Text('exit'),

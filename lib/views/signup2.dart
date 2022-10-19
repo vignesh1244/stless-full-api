@@ -67,7 +67,7 @@ class _SignupTwoState extends State<SignupTwo> {
     if (emailControl.text.isNotEmpty && passControll.text.isNotEmpty) {
       var respose = await http.post(Uri.parse("https://reqres.in/api/login"),
           body: {'email': emailControl.text, 'password': passControll.text});
-
+       print(respose.statusCode);
       if (respose.statusCode == 200) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Second(),));

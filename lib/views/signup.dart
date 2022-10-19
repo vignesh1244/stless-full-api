@@ -5,10 +5,10 @@
 
 import 'dart:convert';
 
+import 'package:c1api/views/signup2_lite.dart';
 import 'package:flutter/material.dart';
 
-
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 class SignUpScreen extends StatefulWidget {
@@ -21,34 +21,52 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController mobileController = TextEditingController();
 
-  // List<Loginn> userList = [];
-
-  void login(dynamic mobile) async {
-    try {
-      // Response response =
-      //     await post(Uri.parse('http://manage.rinzyee.com/api-login'),
-      //         body: {
-      //   'mobile': mobile,
-      // });
 
 
-      final response = await http.post(Uri.parse('http://manage.rinzyee.com/api-login'), body: {
-        'mobile': mobile,
-      });
-      final responseJson = json.decode(utf8.decode(response.bodyBytes));
+  // Future<void> login(dynamic mobile) async {
+  //   print('hai11');
+  //   try {
+  //     final response = await http
+  //         .post(Uri.https("https://manage.rinzyee.com/api-login"), body: {
+  //       "mobile": mobile,
+  //     });
+  //
+  //     print('hai');
+  //     final responseJson = json.decode(utf8.decode(response.bodyBytes));
+  //
+  //     print('hello');
+  //     print(response.statusCode);
+  //     print('Response body: ${response.statusCode}');
+  //
+  //     if (response.statusCode == 200) {
+  //       var data = jsonDecode(response.body.toString());
+  //       print(data);
+  //       print('Login successfully');
+  //     } else {
+  //       print('failedd');
+  //     }
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
-       print(response.statusCode);
-      print('Response body: ${response.statusCode}');
+  Future<void> login(mobile) async {
+    if (mobileController.text.isNotEmpty ) {
+      var respose = await http.post(Uri.parse("https://manage.rinzyee.com/api-login"),
+          body: {'mobile': mobileController.text});
 
-      if (response.statusCode == 200) {
-        var data = jsonDecode(response.body.toString());
-        print(data);
-        print('Login successfully');
-      } else {
-        print('failedd');
+      print(respose.statusCode);
+      if (respose.statusCode == 200) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Second(),));
       }
-    } catch (e) {
-      print(e.toString());
+      else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Invalid Credential')));
+      }
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Balack fild not allowd')));
     }
   }
 
@@ -81,8 +99,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(10),),
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: Center(
                   child: Text('Login'),
                 ),
@@ -94,4 +113,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-

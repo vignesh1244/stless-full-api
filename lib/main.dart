@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:SignupTwo(),
+        home:SignUpScreen(),
       ),
     );
     // return MaterialApp(
