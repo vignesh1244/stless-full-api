@@ -9,7 +9,6 @@ class HomepageP extends StatelessWidget {
   Widget build(BuildContext context) {
     print('builds');
     return Scaffold(
-
       appBar: AppBar(
         title: Text('Stateless example'),
       ),
@@ -19,7 +18,7 @@ class HomepageP extends StatelessWidget {
           Center(
               child: Text(
             "0",
-            style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ))
         ],
       ),

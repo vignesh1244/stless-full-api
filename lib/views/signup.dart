@@ -21,8 +21,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController mobileController = TextEditingController();
 
-
-
   // Future<void> login(dynamic mobile) async {
   //   print('hai11');
   //   try {
@@ -51,22 +49,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
   // }
 
   Future<void> login(mobile) async {
-    if (mobileController.text.isNotEmpty ) {
-      var respose = await http.post(Uri.parse("https://manage.rinzyee.com/api-login"),
-          body: {'mobile': mobileController.text});
+    if (mobileController.text.isNotEmpty) {
+      var respose = await http.post(Uri.parse("https://manage.rinzyee.com/api-login"), body: {'mobile': mobileController.text});
 
       print(respose.statusCode);
       if (respose.statusCode == 200) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Second(),));
-      }
-      else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Invalid Credential')));
+            context,
+            MaterialPageRoute(
+              builder: (context) => Second(),
+            ));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Invalid Credential')));
       }
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Balack fild not allowd')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Balack fild not allowd')));
     }
   }
 

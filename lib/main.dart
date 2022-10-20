@@ -7,6 +7,7 @@ import 'package:c1api/provider/count_provider.dart';
 import 'package:c1api/provider/slider_provider_one.dart';
 import 'package:c1api/views/api_Jtp.dart';
 import 'package:c1api/views/example_five.dart';
+import 'package:c1api/views/image_view.dart';
 import 'package:c1api/views/signup.dart';
 import 'package:c1api/views/signup1.dart';
 import 'package:c1api/views/signup2.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:SignUpScreen(),
+        home:ImageView(),
       ),
     );
     // return MaterialApp(
