@@ -10,7 +10,7 @@ class HomepageP extends StatelessWidget {
     print('builds');
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stateless example abcdefsaas'),
+        title: Text('Stateless example mas'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
