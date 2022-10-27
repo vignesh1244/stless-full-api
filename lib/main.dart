@@ -12,6 +12,7 @@ import 'package:c1api/views/signup.dart';
 import 'package:c1api/views/signup1.dart';
 import 'package:c1api/views/signup2.dart';
 import 'package:c1api/views/slider_provider.dart';
+import 'package:c1api/views/upload_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:c1api/views/stetfull.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:ImageView(),
+        home: UploadImageScreen(),
       ),
     );
     // return MaterialApp(
